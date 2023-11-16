@@ -15,4 +15,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "VimosMarket"
 include(":app")
- 
+include(":navigation")
+include(":navigation:router")
+include(":navigation:graph")
+include(":feature")
+include(":feature:onboarding")
+include(":feature:catalog")
+include(":feature:product-details")

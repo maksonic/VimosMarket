@@ -48,6 +48,8 @@ android {
     }
 }
 dependencies {
+    implementation(project(ModuleInfo.Navigation.Graph.path))
+    implementation(project(ModuleInfo.Navigation.Router.path))
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
