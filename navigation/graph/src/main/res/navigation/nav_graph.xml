@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catalogScreen">
+
+    <fragment
+        android:id="@+id/catalogScreen"
+        android:name="ru.maksonic.vimosmarket.feature.catalog.CatalogScreen"
+        android:label="CatalogScreen" >
+        <action
+            android:id="@+id/action_catalogScreen_to_screenProductDetails"
+            app:destination="@id/screenProductDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/screenProductDetails"
+        android:name="ru.maksonic.vimosmarket.feature.product_details.ScreenProductDetails"
+        android:label="ScreenProductDetails" />
+</navigation>

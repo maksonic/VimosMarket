@@ -50,5 +50,7 @@ android {
 
 dependencies {
     implementation(project(ModuleInfo.Common.Ui.path))
+    implementation(project(ModuleInfo.Navigation.Router.path))
     implementation(libs.appcompat)
+    implementation(libs.navigation.fragment)
 }

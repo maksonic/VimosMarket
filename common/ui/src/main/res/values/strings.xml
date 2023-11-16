@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VimosMarket</string>
+    <string name="txt_onboarding">Сегодня Торговый Дом &quot;ВИМОС&quot; – это 43 магазина строительно-отделочных материалов и хозяйственных товаров.</string>
+    <string name="btn_title_navigate_to_catalog">Перейти к каталогу</string>
+</resources>

@@ -43,6 +43,10 @@ android {
         jvmTarget = AndroidConfig.JVM_TARGET
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -55,17 +59,20 @@ kapt {
 }
 
 dependencies {
+    implementation(project(ModuleInfo.Common.Data.path))
+    implementation(project(ModuleInfo.Common.Domain.path))
+    implementation(project(ModuleInfo.Common.Ui.path))
     implementation(project(ModuleInfo.Navigation.Graph.path))
     implementation(project(ModuleInfo.Navigation.Router.path))
     implementation(project(ModuleInfo.Feature.Catalog.path))
     implementation(project(ModuleInfo.Feature.Onboarding.path))
     implementation(project(ModuleInfo.Feature.ProductDetails.path))
-    implementation(libs.core.ktx)
     implementation(libs.appcompat)
+    implementation(libs.core.ktx)
+    implementation(libs.glide)
     implementation(libs.material)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation(libs.constraintlayout)
     implementation(libs.splash.screen)
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
