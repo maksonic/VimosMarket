@@ -11,6 +11,23 @@ object ModuleInfo {
         namespace = "ru.maksonic.vimosmarket"
     )
 
+    object Common {
+        object Data : AbstractModule(
+            path = ":common:data",
+            namespace = "ru.maksonic.vimosmarket.common.data"
+        )
+
+        object Domain : AbstractModule(
+            path = ":common:domain",
+            namespace = "ru.maksonic.vimosmarket.common.domain"
+        )
+
+        object Ui : AbstractModule(
+            path = ":common:ui",
+            namespace = "ru.maksonic.vimosmarket.common.ui"
+        )
+    }
+
     object Navigation {
         object Graph : AbstractModule(
             path = ":navigation:graph",

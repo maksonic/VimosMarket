@@ -57,6 +57,9 @@ kapt {
 dependencies {
     implementation(project(ModuleInfo.Navigation.Graph.path))
     implementation(project(ModuleInfo.Navigation.Router.path))
+    implementation(project(ModuleInfo.Feature.Catalog.path))
+    implementation(project(ModuleInfo.Feature.Onboarding.path))
+    implementation(project(ModuleInfo.Feature.ProductDetails.path))
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
