@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.plugin.serialization)
+    alias(libs.plugins.dagger.hilt.plugin)
+    alias(libs.plugins.kotlin.kapt)
 }
 android {
     namespace = ModuleInfo.App.namespace
@@ -47,6 +49,11 @@ android {
         }
     }
 }
+
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     implementation(project(ModuleInfo.Navigation.Graph.path))
     implementation(project(ModuleInfo.Navigation.Router.path))
@@ -57,7 +64,6 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.constraintlayout)
     implementation(libs.splash.screen)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.junit.ext)
-    androidTestImplementation(libs.espresso.core)
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
 }
