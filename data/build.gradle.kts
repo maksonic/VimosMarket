@@ -1,19 +1,18 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt.plugin)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = ModuleInfo.Common.Data.namespace
+    namespace = ModuleInfo.Data.namespace
     compileSdk = AndroidConfig.COMPILE_SDK
 
     defaultConfig {
         minSdk = AndroidConfig.MIN_SDK
 
         testInstrumentationRunner = AndroidConfig.TEST_RUNNER
-        vectorDrawables {
-            useSupportLibrary = true
-        }
     }
 
     buildTypes {
@@ -43,7 +42,13 @@ android {
         }
     }
 }
-
 dependencies {
-
+    implementation(project(ModuleInfo.Domain.path))
+    implementation(project(ModuleInfo.Common.Core.path))
+    implementation(libs.coroutines.android)
+    implementation (libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
 }

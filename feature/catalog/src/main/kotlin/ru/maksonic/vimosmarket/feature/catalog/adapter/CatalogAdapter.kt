@@ -1,4 +1,4 @@
-package ru.maksonic.vimosmarket.feature.catalog.core.adapter
+package ru.maksonic.vimosmarket.feature.catalog.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,13 +18,12 @@ class CatalogAdapter(
 
     class CatalogItemDiffUtil : DiffUtil.ItemCallback<ProductUiModel>() {
         override fun areItemsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.code == newItem.code
         }
 
         override fun areContentsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean {
             return oldItem == newItem
         }
-
     }
 
     override fun submitList(list: List<ProductUiModel>?) {

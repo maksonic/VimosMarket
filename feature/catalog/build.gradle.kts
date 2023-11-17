@@ -52,7 +52,7 @@ android {
 
 dependencies {
     implementation(project(ModuleInfo.Domain.path))
-    implementation(project(ModuleInfo.Common.Domain.path))
+    implementation(project(ModuleInfo.Common.Core.path))
     implementation(project(ModuleInfo.Common.Ui.path))
     implementation(project(ModuleInfo.Navigation.Router.path))
     implementation(libs.appcompat)

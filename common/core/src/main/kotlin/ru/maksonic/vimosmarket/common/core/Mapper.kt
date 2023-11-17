@@ -1,4 +1,4 @@
-package ru.maksonic.vimosmarket.common.domain
+package ru.maksonic.vimosmarket.common.core
 
 /**
  * @Author maksonic on 16.11.2023

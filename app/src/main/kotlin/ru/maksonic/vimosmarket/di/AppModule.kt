@@ -10,6 +10,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.maksonic.vimosmarket.ActivityNavigatorCore
+import ru.maksonic.vimosmarket.ResourceProviderCore
+import ru.maksonic.vimosmarket.common.ui.ResourceProvider
 import ru.maksonic.vimosmarket.navigation.router.ActivityNavigator
 import javax.inject.Singleton
 
@@ -26,4 +28,8 @@ object AppModule {
 
     @Provides
     fun provideActivityNavigator(): ActivityNavigator = ActivityNavigatorCore()
+
+    @Provides
+    fun provideResourceProvider(@ApplicationContext context: Context): ResourceProvider =
+        ResourceProviderCore(context)
 }

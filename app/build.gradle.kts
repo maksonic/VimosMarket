@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.plugin.serialization)
     alias(libs.plugins.dagger.hilt.plugin)
     alias(libs.plugins.kotlin.kapt)
 }
@@ -59,8 +58,9 @@ kapt {
 }
 
 dependencies {
-    implementation(project(ModuleInfo.Common.Data.path))
-    implementation(project(ModuleInfo.Common.Domain.path))
+    implementation(project(ModuleInfo.Data.path))
+    implementation(project(ModuleInfo.Domain.path))
+    implementation(project(ModuleInfo.Common.Core.path))
     implementation(project(ModuleInfo.Common.Ui.path))
     implementation(project(ModuleInfo.Navigation.Graph.path))
     implementation(project(ModuleInfo.Navigation.Router.path))

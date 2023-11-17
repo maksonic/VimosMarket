@@ -1,5 +1,3 @@
-import org.gradle.api.JavaVersion
-
 /**
  * @Author maksonic on 27.09.2023
  */
@@ -12,14 +10,9 @@ object ModuleInfo {
     )
 
     object Common {
-        object Data : AbstractModule(
-            path = ":common:data",
-            namespace = "ru.maksonic.vimosmarket.common.data"
-        )
-
-        object Domain : AbstractModule(
-            path = ":common:domain",
-            namespace = "ru.maksonic.vimosmarket.common.domain"
+        object Core : AbstractModule(
+            path = ":common:core",
+            namespace = "ru.maksonic.vimosmarket.common.core"
         )
 
         object Ui : AbstractModule(
@@ -27,6 +20,11 @@ object ModuleInfo {
             namespace = "ru.maksonic.vimosmarket.common.ui"
         )
     }
+
+    object Data : AbstractModule(
+        path = ":data",
+        namespace = "ru.maksonic.vimosmarket.data"
+    )
 
     object Domain : AbstractModule(
         path = ":domain",

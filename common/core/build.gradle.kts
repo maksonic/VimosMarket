@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt.plugin)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = ModuleInfo.Common.Domain.namespace
+    namespace = ModuleInfo.Common.Core.namespace
     compileSdk = AndroidConfig.COMPILE_SDK
 
     defaultConfig {
@@ -45,5 +47,6 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
 }

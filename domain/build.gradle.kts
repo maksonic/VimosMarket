@@ -40,3 +40,6 @@ android {
         }
     }
 }
+dependencies {
+    implementation(libs.coroutines.android)
+}

@@ -1,4 +1,4 @@
-package ru.maksonic.vimosmarket.feature.catalog.core.adapter
+package ru.maksonic.vimosmarket.feature.catalog.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
@@ -13,14 +13,14 @@ class ProductViewHolder(
     private val imageLoader: RequestManager,
     private val onProductClicked: (ProductUiModel) -> Unit,
 ) : RecyclerView.ViewHolder(view.root) {
-
     fun bind(product: ProductUiModel) {
-        view.name.text = product.name
-        view.price.text = product.price.longValueExact().toString()
-        view.code.text = product.name
+        with(view) {
+            name.text = product.name
+            price.text = product.price.toString()
+            code.text = product.code.toString()
+            imageLoader.load(product.imageLink).into(productImage)
 
-        view.card.setOnClickListener {
-            onProductClicked(product)
+            card.setOnClickListener { onProductClicked(product) }
         }
     }
 }

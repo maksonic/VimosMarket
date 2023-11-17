@@ -37,11 +37,6 @@ abstract class BaseScreen<VB : ViewBinding> : Fragment() {
 
     abstract fun render(savedInstanceState: Bundle?)
 
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
-    }
-
     private fun applySystemBarsInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -49,5 +44,10 @@ abstract class BaseScreen<VB : ViewBinding> : Fragment() {
             view.updatePadding(top = insets.top, bottom = insets.bottom)
             WindowInsetsCompat.CONSUMED
         }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 }
