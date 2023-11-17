@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.dagger.hilt.plugin)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -52,4 +54,6 @@ dependencies {
     implementation(project(ModuleInfo.Common.Ui.path))
     implementation(project(ModuleInfo.Navigation.Router.path))
     implementation(libs.appcompat)
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
 }

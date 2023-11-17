@@ -27,7 +27,7 @@ abstract class BaseActivity<VB : ViewBinding> : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         installSplashScreen()
-        initEdgeToEdge()
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         _binding = bindLayout.invoke(layoutInflater)
         setContentView(binding.root)
@@ -46,7 +46,7 @@ abstract class BaseActivity<VB : ViewBinding> : FragmentActivity() {
         }
     }
 
-    private fun initEdgeToEdge() {
+    private fun enableEdgeToEdge() {
         val uiMode = applicationContext.resources?.configuration?.uiMode
         val isDark = when (uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
             Configuration.UI_MODE_NIGHT_YES -> true

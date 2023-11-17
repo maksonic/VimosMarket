@@ -27,7 +27,7 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
     override fun render(savedInstanceState: Bundle?) {
         initBrandLogo()
         binding.btnNavigateToCatalog.setOnClickListener {
-           activityNavigator.navigateFromOnboardingToCatalog(this)
+            activityNavigator.navigateFromOnboardingToCatalog(this)
         }
     }
 

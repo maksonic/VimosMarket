@@ -28,6 +28,11 @@ object ModuleInfo {
         )
     }
 
+    object Domain : AbstractModule(
+        path = ":domain",
+        namespace = "ru.maksonic.vimosmarket.domain"
+    )
+
     object Navigation {
         object Graph : AbstractModule(
             path = ":navigation:graph",
