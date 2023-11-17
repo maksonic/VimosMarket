@@ -10,16 +10,12 @@ interface ProductDomainToUiMapper : Mapper<ProductModel, ProductUiModel> {
     class Mapper : ProductDomainToUiMapper {
         override fun mapTo(i: ProductModel) = ProductUiModel(
             name = i.name,
-            price = i.price,
-            code = i.code,
+            price = "${i.price} ₽",
+            code = "Aрт. ${i.code}",
             imageLink = i.imageLink
         )
 
-        override fun mapFrom(o: ProductUiModel) = ProductModel(
-            name = o.name,
-            price = o.price,
-            code = o.code,
-            imageLink = o.imageLink
-        )
+        override fun mapFrom(o: ProductUiModel) =
+            ProductModel(name = o.name, imageLink = o.imageLink)
     }
 }

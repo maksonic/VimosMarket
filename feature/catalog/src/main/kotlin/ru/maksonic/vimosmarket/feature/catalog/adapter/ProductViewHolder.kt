@@ -16,9 +16,9 @@ class ProductViewHolder(
     fun bind(product: ProductUiModel) {
         with(view) {
             name.text = product.name
-            price.text = product.price.toString()
-            code.text = product.code.toString()
-            imageLoader.load(product.imageLink).into(productImage)
+            price.text = product.price
+            code.text = product.code
+            imageLoader.load(product.imageLink).into(image)
 
             card.setOnClickListener { onProductClicked(product) }
         }

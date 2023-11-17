@@ -5,7 +5,7 @@ package ru.maksonic.vimosmarket.feature.catalog.core
  */
 data class ProductUiModel(
     val name: String,
-    val price: Long,
-    val code: Long,
+    val price: String,
+    val code: String,
     val imageLink: String?
 )
