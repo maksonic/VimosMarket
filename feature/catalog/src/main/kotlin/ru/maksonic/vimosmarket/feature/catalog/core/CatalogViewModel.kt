@@ -3,6 +3,7 @@ package ru.maksonic.vimosmarket.feature.catalog.core
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -40,7 +41,16 @@ class CatalogViewModel @Inject constructor(
         _state.update { it.copy(progress = ProgressState.Success, products = products) }
 
     private fun failure() = _state.update {
-        val failInfo = resourceProvider.getString(R.string.error_msg_fetch_products)
-        it.copy(progress = ProgressState.Failure(failInfo))
+        it.copy(
+            progress = ProgressState.Failure(
+                failInfo = resourceProvider.getString(R.string.error_msg_fetch_products)
+            )
+        )
+    }
+
+    fun retryFetchData() = viewModelScope.launch {
+        _state.update { it.copy(progress = ProgressState.Loading) }
+        delay(1000)
+        fetchProducts()
     }
 }

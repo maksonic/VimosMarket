@@ -9,41 +9,20 @@
         android:id="@+id/catalogRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
         android:clipToPadding="false"
         android:paddingStart="@dimen/padding_8dp"
         android:paddingEnd="@dimen/padding_8dp"
         android:paddingBottom="@dimen/padding_16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         tools:listitem="@layout/item_product" />
 
-    <FrameLayout
+    <include
         android:id="@+id/failureState"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        android:visibility="gone">
+        layout="@layout/state_failure" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/failMessage"
-            style="@style/TextAppearance.Material3.LabelLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-    </FrameLayout>
-
-    <FrameLayout
+    <include
         android:id="@+id/loadingState"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
+        layout="@layout/state_loading" />
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            app:indicatorColor="@color/primary"
-            app:trackCornerRadius="4dp" />
-    </FrameLayout>
 </FrameLayout>

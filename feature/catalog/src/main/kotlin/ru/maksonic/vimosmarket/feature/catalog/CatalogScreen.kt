@@ -2,7 +2,6 @@ package ru.maksonic.vimosmarket.feature.catalog
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,6 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import ru.maksonic.vimosmarket.common.ui.BaseScreen
 import ru.maksonic.vimosmarket.common.ui.R
+import ru.maksonic.vimosmarket.common.ui.hidden
+import ru.maksonic.vimosmarket.common.ui.showed
 import ru.maksonic.vimosmarket.feature.catalog.adapter.CatalogAdapter
 import ru.maksonic.vimosmarket.feature.catalog.core.CatalogViewModel
 import ru.maksonic.vimosmarket.feature.catalog.core.ProductUiModel
@@ -35,13 +36,11 @@ class CatalogScreen : BaseScreen<ScreenCatalogBinding>() {
     lateinit var imageLoader: RequestManager
 
     private val viewModel: CatalogViewModel by viewModels()
-    private var _adapter: CatalogAdapter? = null
-    private val adapter: CatalogAdapter
-        get() = requireNotNull(_adapter)
+    private val adapter: CatalogAdapter by lazy(::initCatalogAdapter)
 
     override fun render(savedInstanceState: Bundle?) {
         setStatusBarColor()
-        initListAdapter()
+        applyAdapterToRecycler()
         handleState()
     }
 
@@ -59,32 +58,36 @@ class CatalogScreen : BaseScreen<ScreenCatalogBinding>() {
         requireActivity().window.statusBarColor = requireContext().getColor(R.color.primary)
     }
 
-    private fun initListAdapter() {
-        _adapter = CatalogAdapter(
-            onProductClicked = { router.navigateFromCatalogToDetails(this) },
-            imageLoader = imageLoader
-        )
+    private fun initCatalogAdapter() = CatalogAdapter(
+        onProductClicked = { router.navigateFromCatalogToDetails(this) },
+        imageLoader = imageLoader
+    )
+
+    private fun applyAdapterToRecycler() {
         binding.catalogRecyclerView.adapter = adapter
     }
 
-    private fun loadingState() {
-        binding.loadingState.visibility = View.VISIBLE
+    private fun loadingState() = with(binding) {
+        loadingState.root.showed()
+        failureState.root.hidden()
     }
 
     private fun successState(list: List<ProductUiModel>) {
         adapter.submitList(list)
 
         with(binding) {
-            loadingState.visibility = View.GONE
-            failureState.visibility = View.GONE
+            loadingState.root.hidden()
+            failureState.root.hidden()
         }
     }
 
-    private fun failureState(message: String) {
-        with(binding) {
-            loadingState.visibility = View.GONE
-            failureState.visibility = View.VISIBLE
-            failMessage.text = message
+    private fun failureState(message: String) = with(binding) {
+        loadingState.root.hidden()
+        failureState.root.showed()
+        failureState.failMessage.text = message
+
+        failureState.btnRetryFetchData.setOnClickListener {
+            viewModel.retryFetchData()
         }
     }
 }
