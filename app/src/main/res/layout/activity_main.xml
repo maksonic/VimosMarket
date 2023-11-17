@@ -20,7 +20,7 @@
             android:background="@color/primary"
             app:layout_scrollFlags="enterAlways"
             app:title="Vimos Market"
-            android:elevation="8dp"
+            android:elevation="2dp"
             app:titleTextAppearance="@style/TextAppearance.Material3.TitleMedium"
             app:titleTextColor="@color/on_primary" />
     </com.google.android.material.appbar.AppBarLayout>
