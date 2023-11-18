@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.dagger.hilt.plugin)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -53,7 +54,11 @@ android {
 dependencies {
     implementation(project(ModuleInfo.Common.Ui.path))
     implementation(project(ModuleInfo.Navigation.Router.path))
+    implementation(project(ModuleInfo.Feature.Catalog.Api.path))
     implementation(libs.appcompat)
+    implementation(libs.glide)
+    implementation(libs.material)
+    implementation(libs.navigation.fragment)
     implementation(libs.dagger.hilt)
     kapt(libs.dagger.hilt.compiler)
 }

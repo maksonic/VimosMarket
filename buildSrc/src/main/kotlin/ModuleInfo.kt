@@ -44,10 +44,17 @@ object ModuleInfo {
     }
 
     object Feature {
-        object Catalog : AbstractModule(
-            path = ":feature:catalog",
-            namespace = "ru.maksonic.vimosmarket.feature.catalog"
-        )
+        object Catalog {
+            object Api : AbstractModule(
+                path = ":feature:catalog:api",
+                namespace = "ru.maksonic.vimosmarket.feature.catalog.api"
+            )
+
+            object Core : AbstractModule(
+                path = ":feature:catalog:core",
+                namespace = "ru.maksonic.vimosmarket.feature.catalog.core"
+            )
+        }
 
         object Onboarding : AbstractModule(
             path = ":feature:onboarding",

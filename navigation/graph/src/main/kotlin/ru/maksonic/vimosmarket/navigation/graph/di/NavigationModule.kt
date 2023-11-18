@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import ru.maksonic.vimosmarket.navigation.router.NavigationKeyStore
 import ru.maksonic.vimosmarket.navigation.router.Router
 
 /**
@@ -14,5 +15,8 @@ import ru.maksonic.vimosmarket.navigation.router.Router
 object NavigationModule {
 
     @Provides
-    fun provideNavigation(): Router = AppNavigator()
+    fun provideNavigationKeyStore(): NavigationKeyStore = NavigationKeyStoreCore()
+
+    @Provides
+    fun provideNavigation(keyStore: NavigationKeyStore): Router = AppNavigator(keyStore)
 }

@@ -18,9 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary"
-            app:layout_scrollFlags="enterAlways"
-            app:title="Vimos Market"
             android:elevation="2dp"
+            app:layout_scrollFlags="enterAlways"
+            app:navigationIcon="@drawable/ic_round_arrow_back_24"
+            app:navigationIconTint="@color/on_primary"
+            app:title="Vimos Market"
             app:titleTextAppearance="@style/TextAppearance.Material3.TitleMedium"
             app:titleTextColor="@color/on_primary" />
     </com.google.android.material.appbar.AppBarLayout>

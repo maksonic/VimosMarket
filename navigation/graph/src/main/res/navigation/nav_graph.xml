@@ -6,17 +6,15 @@
 
     <fragment
         android:id="@+id/catalogScreen"
-        android:name="ru.maksonic.vimosmarket.feature.catalog.CatalogScreen"
-        android:label="CatalogScreen" >
+        android:name="ru.maksonic.vimosmarket.feature.catalog.core.CatalogScreen"
+        android:label="CatalogScreen">
         <action
             android:id="@+id/action_catalogScreen_to_screenProductDetails"
             app:destination="@id/screenProductDetails"
-            app:popUpTo="@id/catalogScreen"
-            app:popUpToInclusive="false"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/screenProductDetails"

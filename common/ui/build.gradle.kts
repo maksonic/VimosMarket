@@ -50,6 +50,7 @@ android {
 dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
+    implementation(libs.navigation.fragment)
     implementation(libs.material)
     implementation(libs.splash.screen)
 }

@@ -6,5 +6,7 @@
     <color name="primary">@color/green_dark_spring</color>
     <color name="on_primary">@color/gray_bright</color>
     <color name="primary_container">@color/jet</color>
-    <color name="on_primary_container">@color/z</color>
+    <color name="on_primary_container">@color/green_sheen</color>
+    <color name="surface">@color/nero</color>
+    <color name="outline">@color/silver_foil</color>
 </resources>

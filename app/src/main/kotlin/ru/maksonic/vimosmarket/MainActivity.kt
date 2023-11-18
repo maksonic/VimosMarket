@@ -16,13 +16,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         get() = ActivityMainBinding::inflate
 
     override fun render(savedInstanceState: Bundle?) {
-        enableEdgeToEdge()
-    }
+        setSupportActionBar(binding.toolBar)
+        enableTopBarBackPressed()
 
-    private fun enableEdgeToEdge() {
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.dark(scrim = Color.TRANSPARENT),
             navigationBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT)
         )
+    }
+
+    private fun enableTopBarBackPressed() {
+        binding.toolBar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 }

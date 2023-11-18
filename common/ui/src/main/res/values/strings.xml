@@ -3,5 +3,8 @@
     <string name="txt_onboarding">Сегодня Торговый Дом &quot;ВИМОС&quot; – это 43 магазина строительно-отделочных материалов и хозяйственных товаров.</string>
     <string name="btn_title_navigate_to_catalog">Перейти к каталогу</string>
     <string name="btn_title_retry_fetch_data">Повторить</string>
+    <string name="btn_title_back">Вернуться назад</string>
+    <string name="error_title_product_not_found">Не удалось получить информацию о продукте.</string>
     <string name="cd_scr_catalog_product_image">Изображение продукта</string>
+    <string name="title_product_price">%1$d ₽</string>
 </resources>
